@@ -1,9 +1,9 @@
-# Workflow for building and deploying a Nuxt3 site to GitHub Pages
+# Workflow for building and deploying a Nuxt site to GitHub Pages
 #
-# To get started with Nuxt3 see: https://nuxtjs.org/docs/get-started/installation
-# To deploy a Nuxt3 app to GitHub Pages see: https://nuxt.com/deploy/github-pages
+# To get started with Nuxt see: https://nuxtjs.org/docs/get-started/installation
+# To deploy a Nuxt app to GitHub Pages see: https://nuxt.com/deploy/github-pages
 #
-name: Deploy Nuxt3 site to Pages
+name: Deploy Nuxt site to Pages
 
 on:
   # Runs on pushes targeting the default branch
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Delete Previous Deployments
-        uses: strumwolf/delete-deployment-environment@v3
+        uses: strumwolf/delete-deployment-environment@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment: github-pages
@@ -46,7 +46,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Detect package manager
         id: detect-package-manager
@@ -65,9 +65,9 @@ jobs:
           fi
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: "20.18.2"
+          node-version: "24.22.0"
           cache: ${{ steps.detect-package-manager.outputs.manager }}
 
       # Note: actions/configure-pages@v5 is for Nuxt2 only
@@ -81,7 +81,7 @@ jobs:
       #    static_site_generator: nuxt
 
       - name: Restore cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: |
             .output
@@ -93,7 +93,7 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
-      - name: Static HTML export with Nuxt3
+      - name: Static HTML export with Nuxt
         run: |
           # If there is no domain assigned to this repos GH pages,
           # then set NUXT_APP_BASE_URL=/<repository>/
@@ -102,7 +102,7 @@ jobs:
           npx nuxt build --preset github_pages
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: ./.output/public
 
@@ -116,4 +116,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
