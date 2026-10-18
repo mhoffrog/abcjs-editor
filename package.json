@@ -19,23 +19,26 @@
 		"lint:fix": "eslint . --fix"
 	},
 	"dependencies": {
-		"@pinia/nuxt": "0.11.3",
-		"@webcoder49/code-input": "2.8.3",
-		"abcjs": "6.7.0",
-		"highlight.js": "11.11.1",
+		"@pinia/nuxt": "^0.11.3",
+		"@webcoder49/code-input": "^2.8.3",
+		"abcjs": "^6.7.0",
+		"highlight.js": "^11.11.1",
 		"highlightjs-abc": "https://github.com/paulrosen/highlightjs-abc.git#0dff0ab12ad49a365163e527f05ed62d06f3fdf6",
-		"nuxt": "4.4.5",
-		"pinia": "3.0.4"
+		"nuxt": "^4.6.2",
+		"pinia": "^3.0.4"
 	},
 	"devDependencies": {
-		"@nuxt/eslint": "1.12.1",
-		"@nuxtjs/google-fonts": "3.2.0",
-		"eslint": "9.39.2",
-		"vite-plugin-eslint2": "5.0.4"
+		"@nuxt/eslint": "^1.12.1",
+		"@nuxtjs/google-fonts": "^3.2.0",
+		"eslint": "^10.13.0",
+		"vite-plugin-eslint2": "^5.0.4"
+	},
+	"overrides": {
+		"glob": "^13.0.6"
 	},
 	"allowScripts": {
 		"@parcel/watcher@2.5.6": true,
 		"unrs-resolver@1.12.2": true,
-		"esbuild@0.28.1": true
+		"esbuild@0.28.2": true
 	}
 }
