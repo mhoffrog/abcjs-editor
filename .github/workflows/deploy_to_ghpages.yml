@@ -95,11 +95,12 @@ jobs:
 
       - name: Static HTML export with Nuxt
         run: |
-          # If there is no domain assigned to this repos GH pages,
-          # then set NUXT_APP_BASE_URL=/<repository>/
-          export NUXT_APP_BASE_URL="/${GITHUB_REPOSITORY##*/}/"
           echo "NUXT_APP_BASE_URL: ${NUXT_APP_BASE_URL}"
           npx nuxt build --preset github_pages
+        env:
+          # If there is no domain assigned to this repos GH pages,
+          # then set NUXT_APP_BASE_URL=/<repository>/
+          NUXT_APP_BASE_URL: /${{ github.event.repository.name }}/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
