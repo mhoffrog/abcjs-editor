@@ -12,7 +12,11 @@
 		"dev-cache": "rm -R node_modules/.cache/vite && nuxt dev",
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
-		"postinstall": "nuxt prepare"
+		"postinstall": "nuxt prepare",
+		"ghpages": "nuxt build --preset github_pages",
+		"postghpages": "npx serve .output/public",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix"
 	},
 	"dependencies": {
 		"@pinia/nuxt": "0.11.3",
