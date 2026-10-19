@@ -19,7 +19,7 @@
 		"lint:fix": "eslint . --fix"
 	},
 	"dependencies": {
-		"@pinia/nuxt": "^0.11.3",
+		"@pinia/nuxt": "^1.0.3",
 		"@webcoder49/code-input": "^2.8.3",
 		"abcjs": "^6.7.0",
 		"highlight.js": "^11.11.1",
