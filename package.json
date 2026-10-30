@@ -24,7 +24,7 @@
 		"abcjs": "^6.7.0",
 		"highlight.js": "^11.11.1",
 		"highlightjs-abc": "https://github.com/paulrosen/highlightjs-abc.git#0dff0ab12ad49a365163e527f05ed62d06f3fdf6",
-		"nuxt": "^4.6.2"
+		"nuxt": "^4.6.3"
 	},
 	"devDependencies": {
 		"@nuxt/eslint": "^1.12.1",
